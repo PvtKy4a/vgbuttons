@@ -12,7 +12,7 @@
 
 #define INCREMENT_TIME_MS 200
 
-#define MAX_BUTTONS	(uint8_t)8
+#define MAX_BUTTONS	(uint8_t)7
 
 #define INIT_ERROR	(int8_t)-1
 #define INIT_OK		(int8_t)0
@@ -133,9 +133,9 @@ bool vgbuttons_is_pressed(struct vgbuttons *self, const uint8_t button)
 	{
 		return false;
 	}
-	if (self->state & (1 << (button - 1)))
+	if (self->state & (1 << button))
 	{
-		self->state &= ~(1 << (button - 1));
+		self->state &= ~(1 << button);
 		return true;
 	}
 	return false;
